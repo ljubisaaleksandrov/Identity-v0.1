@@ -1,0 +1,5 @@
+C:\Users\Kika Atov\documents\visual studio 2017\Projects\AjdemeSi\AjdemeSi.Database\bin\Debug\AjdemeSi.Database.dacpac
+C:\Users\Kika Atov\documents\visual studio 2017\Projects\AjdemeSi\AjdemeSi.Database\bin\Debug\AjdemeSi.Database.dll
+C:\Users\Kika Atov\documents\visual studio 2017\Projects\AjdemeSi\AjdemeSi.Database\bin\Debug\AjdemeSi.Database.pdb
+C:\Users\Kika Atov\documents\visual studio 2017\Projects\AjdemeSi\AjdemeSi.Database\obj\Debug\AjdemeSi.Database.dll
+C:\Users\Kika Atov\documents\visual studio 2017\Projects\AjdemeSi\AjdemeSi.Database\obj\Debug\AjdemeSi.Database.pdb

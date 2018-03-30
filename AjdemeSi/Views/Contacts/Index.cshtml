@@ -1,0 +1,61 @@
+@using AjdemeSi.Domain;
+@model IEnumerable<AspNetUser>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@*TODO-Rick - Remove address, email, zip from Index page, leave them on the Details page.
+    Add owner name.*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailConfirmed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.EmailConfirmed)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = user.Id })" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a href="@Url.Action("Edit", new { id = user.Id })" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="#" id="RemoveUser" data-id="@user.Id" data-action="@Url.Action("Remove", new { id = user.Id })" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@System.Configuration.ConfigurationManager.AppSettings["test"]

@@ -1,0 +1,54 @@
+@using AjdemeSi.Domain.Models.Identity;
+@model IdentityUserPagedListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel-body">
+                <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="row col-xs-12">
+                        <div id="dataTables-example_filter" class="filter-search-query-wrapper">
+                            <input type="search" class="form-control input-sm filter-search-query" placeholder="Search" aria-controls="dataTables-example">
+                        </div>
+                        <div class="input-group date filter-date-wrapper" data-provide="datepicker" data-current-time="@Model.DateFrom.ToString("MM/dd/yyyy")" id="DateFrom" data-is-initialized="false">
+                            <input type="text" class="form-control" value="@Model.DateFrom.ToString("MM/dd/yyyy")">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                        <div class="input-group date filter-date-wrapper" data-provide="datepicker" data-current-time="@Model.DateTo.ToString("MM/dd/yyyy")" id="DateTo" data-is-initialized="false">
+                            <input type="text" class="form-control" value="@Model.DateTo.ToString("MM/dd/yyyy")">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                        <div class="filter-user-roles">
+                            @Html.DropDownList("User Roles", Model.UserRoles, new { @class="multiple-select-box", @multiple = "multiple", @placeholder="Select User Role(s)" })
+                        </div>
+                        <div class="filter-count-on-page-wrapper" id="dataTables-example_length">
+                            <label>
+                                Show
+                                @Html.DropDownList("Count on page filter", Model.CountsList, new { @class = "form-control input-sm filter-count-on-page" })
+                                entries
+                            </label>
+                        </div>
+                    </div>
+                    <div class="entries-list">
+                        @Html.Partial("~/Areas/Administration/Views/Home/IndexData.cshtml")
+                    </div>
+
+                    @Html.Hidden("ControlerName", HttpContext.Current.Request.RequestContext.RouteData.Values["controller"])
+                    @Html.Hidden("CountOnPage", Model.PageSize)
+                </div>
+            </div>
+
+            <div id="myfirstchart" style="height: 250px; width: 100%"></div>
+        }
+    </div>
+</div>
